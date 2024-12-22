@@ -1,0 +1,99 @@
+/* Контактная информация */
+.contact-info {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* Карта */
+.map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.map iframe {
+    width: 30%;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Форма обратной связи */
+.feedback-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.response-message {
+    color: #2ecc71;
+    font-weight: bold;
+    text-align: center;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #2ecc71;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .contact-page {
+        padding: 15px;
+    }
+
+    .feedback-form {
+        padding: 15px;
+    }
+
+    .map iframe {
+        width: 80%;
+        height: 200px;
+    }
+}

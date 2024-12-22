@@ -1,76 +1,78 @@
+@import './../../../public/assets/styles/variable.css';
+
 /* Общие стили */
 .profile-page {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
+    padding: var(--spacing-padding);
+    font-family: var(--font-family);
+    background-color: var(--color-background);
+    color: var(--color-text);
     text-align: center;
 }
 
 h1 {
-    color: #2ecc71;
-    margin-bottom: 20px;
+    color: var(--color-button-hover);
+    margin-bottom: var(--spacing-margin);
 }
 
 h2 {
-    color: #3498db;
-    margin-bottom: 10px;
+    color: var(--color-link);
+    margin-bottom: calc(var(--spacing-margin) / 2);
 }
 
 /* Кнопки */
 .login-button,
 .logout-button,
 .save-button {
-    padding: 10px 15px;
-    background-color: #3498db;
-    color: #fff;
+    padding: calc(var(--spacing-padding) / 2) calc(var(--spacing-padding));
+    background-color: var(--color-link);
+    color: var(--color-background);
     border: none;
-    border-radius: 5px;
+    border-radius: var(--spacing-border-radius);
     font-size: 1.1rem;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: var(--spacing-margin);
     transition: background-color 0.3s ease;
 }
 
 .login-button:hover,
 .logout-button:hover,
 .save-button:hover {
-    background-color: #2ecc71;
+    background-color: var(--color-button-hover);
 }
 
 /* Личные данные */
 .user-data {
-    margin: 20px auto;
+    margin: var(--spacing-margin) auto;
     max-width: 500px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-primary);
+    padding: var(--spacing-padding);
+    border-radius: var(--spacing-border-radius);
+    box-shadow: 0 4px 10px var(--color-card-shadow);
     text-align: left;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: calc(var(--spacing-margin) * 1.5);
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: calc(var(--spacing-margin) / 2);
     font-weight: bold;
-    color: #333;
+    color: var(--color-text);
 }
 
 .form-group input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
+    padding: calc(var(--spacing-padding) / 2);
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--spacing-border-radius);
+    font-size: var(--font-size-base);
 }
 
 /* История записей */
 .history {
-    margin-top: 30px;
+    margin-top: calc(var(--spacing-margin) * 3);
 }
 
 .history ul {
@@ -79,21 +81,21 @@ h2 {
 }
 
 .history li {
-    background-color: #fff;
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-primary);
+    padding: calc(var(--spacing-padding) / 2) calc(var(--spacing-padding));
+    margin-bottom: var(--spacing-margin);
+    border-radius: var(--spacing-border-radius);
+    box-shadow: 0 4px 10px var(--color-card-shadow);
     text-align: left;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
     .user-data {
-        padding: 15px;
+        padding: calc(var(--spacing-padding) / 1.5);
     }
 
     .form-group input {
-        font-size: 0.9rem;
+        font-size: calc(var(--font-size-base) * 0.9);
     }
 }

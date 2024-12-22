@@ -3,7 +3,9 @@ import "./Footer.css";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = ({ footerData }) => {
-    const { developer, socialLinks, clubInfo } = footerData;
+    if (!footerData) return null;
+
+    const { developer, socialLinks, siteInfo } = footerData;
 
     const renderIcon = (iconName) => {
         switch (iconName) {
@@ -21,24 +23,22 @@ const Footer = ({ footerData }) => {
     return (
         <footer className="footer">
             <div className="footer-container">
-                {/* Информация о клубе */}
-                <div className="footer-section club-info">
+                <div className="footer-section site-info">
                     <h3>Контактная информация</h3>
-                    <p>{clubInfo.address}</p>
-                    <p>Телефон: {clubInfo.phone}</p>
+                    <p>{siteInfo?.address || "Адрес не указан"}</p>
+                    <p>Телефон: {siteInfo?.phone || "Телефон не указан"}</p>
                     <p>
-                        Email: <a href={`mailto:${clubInfo.email}`}>{clubInfo.email}</a>
+                        Email: <a href={`mailto:${siteInfo?.email || ""}`}>{siteInfo?.email || "Email не указан"}</a>
                     </p>
                 </div>
 
-                {/* Ссылки на соцсети */}
                 <div className="footer-section social-links">
                     <h3>Мы в соцсетях</h3>
                     <div className="social-icons">
-                        {socialLinks.map((link, index) => (
+                        {socialLinks?.map((link, index) => (
                             <a
                                 key={index}
-                                href={link.url}
+                                href={link.url || "#"}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label={link.platform}
@@ -49,19 +49,16 @@ const Footer = ({ footerData }) => {
                     </div>
                 </div>
 
-                {/* Информация о разработчике */}
                 <div className="footer-section developer-info">
                     <h3>Разработчик</h3>
+                    <p>{developer?.name || "Имя разработчика"}</p>
                     <p>
-                        {developer.name} &copy; {new Date().getFullYear()}
-                    </p>
-                    <p>
-                        <a href={developer.website} target="_blank" rel="noopener noreferrer">
-                            {developer.website}
+                        <a href={developer?.website || "#"} target="_blank" rel="noopener noreferrer">
+                            {developer?.website || "Сайт разработчика"}
                         </a>
                     </p>
                     <p>
-                        Email: <a href={`mailto:${developer.email}`}>{developer.email}</a>
+                        Email: <a href={`mailto:${developer?.email || ""}`}>{developer?.email || "Email не указан"}</a>
                     </p>
                 </div>
             </div>

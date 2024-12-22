@@ -1,45 +1,47 @@
-/* Общие стили Header */
+@import './../../../public/assets/styles/variable.css';
+
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #000;
-
+    background-color: var(--color-header);
+    z-index: 1000;
 }
+
 .container {
     max-width: 1200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    padding: 15px 20px;
+    padding: var(--spacing-padding);
     z-index: 1000;
-
 }
+
 .logo a {
-    font-size: 24px;
+    font-size: var(--font-size-heading);
     font-weight: bold;
-    color: #fff;
+    color: var(--color-text);
     text-decoration: none;
 }
 
 .navbar {
     display: flex;
-    gap: 20px;
+    gap: var(--spacing-margin);
 }
 
 .nav-link {
-    color: #fff;
+    color: var(--color-text);
     text-decoration: none;
-    font-size: 12px;
+    font-size: var(--font-size-base);
     position: relative;
     transition: color 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link.active {
-    color: #2ecc71;
+    color: var(--color-link-hover);
 }
 
 .profile-buttons {
@@ -53,18 +55,19 @@
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: #fff;
+    color: var(--color-text);
     transition: color 0.3s ease;
-    padding-top: 10px;
+    padding-top: var(--spacing-margin);
 }
 
 .profile-icon:hover {
-    color: #2ecc71;
+    color: var(--color-link-hover);
 }
+
 .icon-text {
-    font-size: 12px;
-    margin-top: 5px;
-    color: #fff;
+    font-size: var(--font-size-base);
+    margin-top: var(--spacing-margin);
+    color: var(--color-muted-text);
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -79,7 +82,7 @@
 .burger-menu {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    gap: var(--spacing-margin);
     cursor: pointer;
 }
 
@@ -87,8 +90,8 @@
     display: block;
     width: 25px;
     height: 3px;
-    background-color: #fff;
-    border-radius: 2px;
+    background-color: var(--color-text);
+    border-radius: var(--spacing-border-radius);
 }
 
 /* Адаптивность */
@@ -99,10 +102,10 @@
         position: absolute;
         top: 60px;
         right: 0;
-        background-color: #000;
+        background-color: var(--color-header);
         width: 100%;
         text-align: center;
-        padding: 10px 0;
+        padding: var(--spacing-padding) 0;
     }
 
     .navbar.open {

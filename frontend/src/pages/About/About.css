@@ -1,50 +1,52 @@
+@import './../../../public/assets/styles/variable.css';
+
 /* Общие стили */
 .about-page {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
+    padding: var(--spacing-padding);
+    font-family: var(--font-family);
+    background-color: var(--color-background);
+    color: var(--color-text);
 }
 
 h1,
 h2 {
     text-align: center;
-    margin-bottom: 20px;
-    color: #2ecc71;
+    margin-bottom: var(--spacing-margin);
+    color: var(--color-link-hover);
 }
 
 /* История клуба */
 .club-history {
-    margin-bottom: 40px;
+    margin-bottom: calc(var(--spacing-margin) * 4);
     line-height: 1.6;
-    font-size: 1.2rem;
-    color: #555;
+    font-size: calc(var(--font-size-base) * 1.2);
+    color: var(--color-muted-text);
     text-align: center;
     max-width: 800px;
-    margin: 0 auto 40px;
+    margin: 0 auto calc(var(--spacing-margin) * 4);
 }
 
 /* Команда */
 .team {
-    margin-top: 40px;
+    margin-top: calc(var(--spacing-margin) * 4);
 }
 
 .team-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: var(--spacing-margin);
     justify-content: center;
 }
 
 .team-member {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--spacing-border-radius);
+    box-shadow: 0 4px 10px var(--color-card-shadow);
     overflow: hidden;
     text-align: center;
     max-width: 300px;
-    padding: 20px;
+    padding: var(--spacing-padding);
     transition: transform 0.3s ease;
 }
 
@@ -56,25 +58,25 @@ h2 {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    border-radius: var(--spacing-border-radius);
+    margin-bottom: var(--spacing-margin);
 }
 
 .team-member h3 {
-    margin-bottom: 10px;
-    color: #3498db;
+    margin-bottom: var(--spacing-margin);
+    color: var(--color-link);
 }
 
 .team-member p {
-    margin-bottom: 10px;
-    color: #555;
+    margin-bottom: var(--spacing-margin);
+    color: var(--color-muted-text);
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
     .club-history {
-        font-size: 1rem;
-        padding: 0 10px;
+        font-size: var(--font-size-base);
+        padding: 0 calc(var(--spacing-margin) * 2);
     }
 
     .team-grid {

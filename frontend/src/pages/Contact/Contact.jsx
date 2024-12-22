@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import "./Contact.css";
 
 const Contact = ({ contactData }) => {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        message: "",
-    });
+    const [formData, setFormData] = useState({ name: "", email: "", message: "" });
     const [responseMessage, setResponseMessage] = useState("");
 
     const handleChange = (e) => {
@@ -16,57 +12,28 @@ const Contact = ({ contactData }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        // Проверка на заполненность
         if (!formData.name || !formData.email || !formData.message) {
             setResponseMessage("Пожалуйста, заполните все поля.");
             return;
         }
 
-        // Имитация отправки формы
-        console.log("Отправлено сообщение:", formData);
+        console.log("Сообщение отправлено:", formData);
         setResponseMessage("Ваше сообщение отправлено. Спасибо!");
-
-        // Сброс формы
-        setFormData({
-            name: "",
-            email: "",
-            message: "",
-        });
+        setFormData({ name: "", email: "", message: "" });
     };
 
     return (
         <div className="contact-page">
             <h1>Свяжитесь с нами</h1>
 
-            {/* Контактная информация */}
             <section className="contact-info">
                 <h2>Контактные данные</h2>
-                <p>
-                    <strong>Адрес:</strong> {contactData.address}
-                </p>
-                <p>
-                    <strong>Телефон:</strong> <a href={`tel:${contactData.phone}`}>{contactData.phone}</a>
-                </p>
-                <p>
-                    <strong>Email:</strong> <a href={`mailto:${contactData.email}`}>{contactData.email}</a>
-                </p>
+                <p>Адрес: {contactData?.address || "Не указан"}</p>
+                <p>Телефон: <a href={`tel:${contactData?.phone}`}>{contactData?.phone || "Не указан"}</a></p>
+                <p>Email: <a href={`mailto:${contactData?.email}`}>{contactData?.email || "Не указан"}</a></p>
             </section>
 
-            {/* Интерактивная карта */}
-            <section className="map">
-                <iframe
-                    src={contactData.mapUrl}
-                    title="Карта местоположения"
-                    loading="lazy"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                ></iframe>
-            </section>
-
-            {/* Форма обратной связи */}
             <section className="feedback-form">
-                <h2>Форма обратной связи</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="name">Имя</label>
@@ -76,10 +43,9 @@ const Contact = ({ contactData }) => {
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
-                            placeholder="Введите ваше имя"
+                            placeholder="Ваше имя"
                         />
                     </div>
-
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
                         <input
@@ -88,10 +54,9 @@ const Contact = ({ contactData }) => {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            placeholder="Введите ваш email"
+                            placeholder="Ваш email"
                         />
                     </div>
-
                     <div className="form-group">
                         <label htmlFor="message">Сообщение</label>
                         <textarea
@@ -99,16 +64,12 @@ const Contact = ({ contactData }) => {
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
-                            placeholder="Введите ваше сообщение"
+                            placeholder="Ваше сообщение"
                         ></textarea>
                     </div>
-
-                    {responseMessage && <p className="response-message">{responseMessage}</p>}
-
-                    <button type="submit" className="submit-button">
-                        Отправить
-                    </button>
+                    <button type="submit">Отправить</button>
                 </form>
+                {responseMessage && <p>{responseMessage}</p>}
             </section>
         </div>
     );

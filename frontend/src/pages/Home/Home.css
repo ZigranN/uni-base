@@ -1,38 +1,44 @@
+@import './../../../public/assets/styles/variable.css';
+
 /* Общие стили */
 .home-page {
-    padding: 50px;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    max-width: 1200px;
+    margin: 75px auto;
+    padding: var(--spacing-padding);
+    font-family: var(--font-family);
+    background-color: var(--color-background);
+    color: var(--color-text);
 }
 
 .welcome {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: calc(var(--spacing-margin) * 4);
 }
 
 .welcome h1 {
-    font-size: 2.5rem;
-    color: #2ecc71;
-    margin-bottom: 10px;
+    font-size: var(--font-size-heading);
+    color: var(--color-link-hover);
+    margin-bottom: var(--spacing-margin);
 }
 
 .welcome p {
     font-size: 1.2rem;
-    color: #555;
+    color: var(--color-muted-text);
 }
 
 /* Слайдер */
 .slider-container {
     position: relative;
-    max-width: 800px;
-    margin: 0 auto 40px;
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto calc(var(--spacing-margin) * 3);
+    border-radius: var(--spacing-border-radius);
+    box-shadow: 0 4px 10px var(--color-card-shadow);
 }
 
 .slider {
+    display: flex;
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -44,14 +50,16 @@
 }
 
 .slide {
-    flex: 0 0 100%;
-    max-width: 100%;
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
 }
 
 .slide img {
     width: 100%;
     height: auto;
     display: block;
+    border-radius: var(--spacing-border-radius);
 }
 
 .slider-button {
@@ -59,12 +67,18 @@
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
+    color: var(--color-background);
     border: none;
-    padding: 10px;
+    padding: calc(var(--spacing-padding) / 2);
     cursor: pointer;
     z-index: 10;
+    border-radius: var(--spacing-border-radius);
     font-size: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.slider-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .slider-button.prev {
@@ -75,8 +89,60 @@
     right: 10px;
 }
 
-.slider-button:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+/* Информационные секции */
+.info-sections {
+    display: block;
+    margin-top: calc(var(--spacing-margin) * 3);
+}
+
+.info-section {
+    background-color: var(--color-primary);
+    border-radius: var(--spacing-border-radius);
+    box-shadow: 0 4px 10px var(--color-card-shadow);
+    margin-bottom: calc(var(--spacing-margin) * 3);
+    padding: var(--spacing-padding);
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px var(--color-card-shadow);
+}
+
+.info-section img {
+    max-width: 40%;
+    height: auto;
+    margin-bottom: var(--spacing-margin);
+    border-radius: calc(var(--spacing-border-radius) / 2);
+}
+
+.info-section h2 {
+    font-size: var(--font-size-subheading);
+    color: var(--color-link-hover);
+    margin-bottom: var(--spacing-margin);
+}
+
+.info-section p {
+    font-size: var(--font-size-base);
+    color: var(--color-muted-text);
+    margin-bottom: var(--spacing-margin);
+}
+
+.info-button {
+    display: inline-block;
+    background-color: var(--color-button);
+    color: var(--color-background);
+    text-decoration: none;
+    padding: calc(var(--spacing-padding) / 2) calc(var(--spacing-padding));
+    border-radius: calc(var(--spacing-border-radius) / 2);
+    font-size: var(--font-size-base);
+    transition: background-color 0.3s ease;
+}
+
+.info-button:hover {
+    background-color: var(--color-button-hover);
 }
 
 /* Адаптивность */
@@ -93,11 +159,19 @@
         max-width: 100%;
     }
 
-    .events h2 {
+    .info-section img {
+        max-width: 60%;
+    }
+
+    .info-section h2 {
         font-size: 1.5rem;
     }
 
-    .events li {
-        font-size: 1rem;
+    .info-section p {
+        font-size: 0.9rem;
+    }
+
+    .info-button {
+        font-size: 0.9rem;
     }
 }

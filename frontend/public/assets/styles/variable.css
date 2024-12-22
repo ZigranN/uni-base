@@ -1,0 +1,27 @@
+:root {
+    /* Цвета */
+    --color-primary: #f7f4f0; /* Светло-бежевый для основного фона */
+    --color-secondary: #e4dfd9; /* Нежный серо-бежевый для акцентов */
+    --color-background: #ffffff; /* Чистый белый фон */
+    --color-text: #4e4b47; /* Теплый тёмно-серый для текста */
+    --color-muted-text: #7d7973; /* Серо-бежевый для второстепенного текста */
+    --color-button: #b7a99a; /* Бежевый для кнопок */
+    --color-button-hover: #9c8c7a; /* Темный бежевый для кнопок при наведении */
+    --color-header: #d6cec3; /* Светлый серо-бежевый для хедера */
+    --color-footer: #eae6df; /* Очень светлый серо-бежевый для футера */
+    --color-card-shadow: rgba(0, 0, 0, 0.1); /* Мягкая тень для карточек */
+    --color-link: #948575; /* Теплый серо-бежевый для ссылок */
+    --color-link-hover: #7a6a5a; /* Темный серо-бежевый для ссылок при наведении */
+    --color-error: #d9534f; /* Красный для ошибок */
+
+    /* Шрифты */
+    --font-family: 'Roboto, sans-serif';
+    --font-size-base: 16px;
+    --font-size-heading: 2rem;
+    --font-size-subheading: 1.5rem;
+
+    /* Отступы */
+    --spacing-padding: 20px;
+    --spacing-margin: 15px;
+    --spacing-border-radius: 8px;
+}

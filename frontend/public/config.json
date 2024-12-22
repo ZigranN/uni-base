@@ -1,150 +1,114 @@
 {
   "theme": {
-    "primaryColor": "#fff",
-    "secondaryColor": "#2ecc71",
-    "backgroundColor": "#f5f5f5",
-    "fontFamily": "Arial, sans-serif"
+    "primaryColor": "#f0f0f0",
+    "secondaryColor": "#cccccc",
+    "backgroundColor": "#ffffff",
+    "fontFamily": "sans-serif"
   },
   "navigation": [
     { "label": "Главная", "path": "/" },
+    { "label": "О нас", "path": "/about" },
     { "label": "Услуги", "path": "/services" },
-    { "label": "О клубе", "path": "/about" },
-    { "label": "Онлайн-запись", "path": "/booking" },
     { "label": "Мероприятия", "path": "/events" },
-    { "label": "Контакты", "path": "/contact" }
+    { "label": "Записаться", "path": "/booking" },
+    { "label": "Контакты", "path": "/contact" },
+    { "label": "Профиль", "path": "/profile" }
   ],
   "mainContent": {
     "/": {
-      "welcomeMessage": "Добро пожаловать в наш конный клуб",
-      "description": "Лучшее место для любителей лошадей. Наслаждайтесь верховой ездой и нашими уникальными услугами!",
+      "welcomeMessage": "Добро пожаловать!",
+      "description": "Это шаблонный сайт, который можно легко адаптировать под любые нужды.",
       "slider": [
         "./assets/images/1.jpeg",
-        "./assets/images/2.jpeg",
-        "./assets/images/3.jpeg",
-        "./assets/images/4.jpeg"
-      ],
-      "events": [
-        {
-          "name": "Турнир по конному спорту",
-          "date": "2024-09-10"
-        },
-        {
-          "name": "День открытых дверей",
-          "date": "2024-09-15"
-        }
+        "./assets/images/2.jpg",
+        "./assets/images/2.jpg",
+        "./assets/images/2.jpg"
       ]
     }
   },
-    "footer": {
-      "developer": {
-        "name": "Александр Иванов",
-        "website": "https://yourwebsite.com",
-        "email": "your.email@example.com"
-      },
-      "socialLinks": [
-        {
-          "platform": "Facebook",
-          "url": "https://facebook.com/yourpage",
-          "icon": "FaFacebookF"
-        },
-        {
-          "platform": "Instagram",
-          "url": "https://instagram.com/yourprofile",
-          "icon": "FaInstagram"
-        },
-        {
-          "platform": "Twitter",
-          "url": "https://twitter.com/yourprofile",
-          "icon": "FaTwitter"
-        }
-      ],
-      "clubInfo": {
-        "address": "г. Москва, ул. Примерная, д. 1",
-        "phone": "+7 (123) 456-78-90",
-        "email": "info@horseclub.ru"
-      }
+  "footer": {
+    "developer": {
+      "name": "Разработчик",
+      "website": "https://example.com",
+      "email": "developer@example.com"
     },
+    "socialLinks": [
+      {
+        "platform": "Facebook",
+        "url": "#",
+        "icon": "FaFacebookF"
+      },
+      {
+        "platform": "Instagram",
+        "url": "#",
+        "icon": "FaInstagram"
+      },
+      {
+        "platform": "Twitter",
+        "url": "#",
+        "icon": "FaTwitter"
+      }
+    ],
+    "siteInfo": {
+      "address": "Адрес не указан",
+      "phone": "+7 (000) 000-00-00",
+      "email": "info@example.com"
+    }
+  },
   "services": [
     {
-      "name": "Верховая езда",
-      "description": "Уроки верховой езды для начинающих и профессионалов.",
-      "price": 1500,
+      "name": "Услуга 1",
+      "description": "Описание услуги.",
+      "price": 0,
       "category": "Категория 1",
       "image": "./assets/images/1.jpeg"
     },
     {
-      "name": "Аренда коня",
-      "description": "Аренда коня для прогулок или мероприятий.",
-      "price": 2500,
-      "category": "Категория 1",
-      "image": "./assets/images/1.jpeg"
-    },
-    {
-      "name": "Тренировка",
-      "description": "Индивидуальные тренировки с инструктором.",
-      "price": 3000,
-      "category": "Категория 2",
-      "image": "./assets/images/1.jpeg"
-    },
-    {
-      "name": "Конный тур",
-      "description": "Экскурсии по живописным маршрутам на лошадях.",
-      "price": 5000,
+      "name": "Услуга 2",
+      "description": "Описание услуги.",
+      "price": 0,
       "category": "Категория 2",
       "image": "./assets/images/1.jpeg"
     }
   ],
   "about": {
-    "history": "Наш клуб был основан в 2000 году с целью популяризации верховой езды. За эти годы мы стали местом, где каждый может ощутить гармонию с природой, обучиться верховой езде и насладиться прекрасными лошадьми.",
+    "history": "История организации пока не указана.",
+    "image": "./assets/images/2.jpg",
     "team": [
       {
-        "name": "Анна Иванова",
-        "position": "Главный инструктор",
-        "bio": "Более 15 лет опыта в обучении верховой езде. Анна специализируется на работе с начинающими и профессиональными всадниками.",
-        "photo": "./assets/images/trener.jpeg"
+        "name": "Имя Фамилия",
+        "position": "Должность",
+        "bio": "Краткая биография.",
+        "photo": "./assets/images/1.jpeg"
       },
       {
-        "name": "Игорь Петров",
-        "position": "Тренер по выездке",
-        "bio": "Мастер спорта по конному спорту. Игорь помогает развивать навыки выездки у всадников любого уровня.",
-        "photo": "./assets/images/trener.jpeg"
-      },
-      {
-        "name": "Мария Смирнова",
-        "position": "Ветеринар",
-        "bio": "Обеспечивает здоровье и уход за нашими лошадьми. Мария — профессиональный ветеринар с 10-летним опытом.",
-        "photo": "./assets/images/trener.jpeg"
+        "name": "Имя Фамилия",
+        "position": "Должность",
+        "bio": "Краткая биография.",
+        "photo": "./assets/images/1.jpeg"
       }
     ]
   },
   "events": [
     {
-      "name": "Турнир по конному спорту",
-      "date": "2024-09-10",
-      "time": "10:00",
-      "location": "Конный стадион №1",
-      "description": "Участники со всей страны продемонстрируют свои навыки верховой езды в захватывающем турнире."
+      "name": "Событие 1",
+      "date": "2024-01-01",
+      "time": "00:00",
+      "location": "Местоположение",
+      "description": "Описание события."
     },
     {
-      "name": "День открытых дверей",
-      "date": "2024-09-15",
-      "time": "12:00",
-      "location": "Конный клуб",
-      "description": "Приходите всей семьей, чтобы познакомиться с нашими лошадьми, инструкторами и программами обучения."
-    },
-    {
-      "name": "Мастер-класс по выездке",
-      "date": "2024-09-20",
-      "time": "14:00",
-      "location": "Тренировочный манеж",
-      "description": "Индивидуальные уроки по выездке от мастеров спорта для всадников любого уровня подготовки."
+      "name": "Событие 2",
+      "date": "2024-02-01",
+      "time": "00:00",
+      "location": "Местоположение",
+      "description": "Описание события."
     }
   ],
   "contact": {
-    "address": "г. Москва, ул. Примерная, д. 1",
-    "phone": "+7 (123) 456-78-90",
-    "email": "info@horseclub.ru",
-    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18..."
+    "address": "Не указан",
+    "phone": "+7 (000) 000-00-00",
+    "email": "info@example.com",
+    "mapUrl": "#"
   }
-
 }

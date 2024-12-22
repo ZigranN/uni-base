@@ -6,15 +6,18 @@ import "./Navbar.css";
 const Navbar = ({ navigation, user }) => {
     const [menuOpen, setMenuOpen] = useState(false);
 
+    const filteredNavigation = user
+        ? navigation
+        : navigation.filter((link) => link.label !== "Профиль");
+
     return (
         <header className="header">
             <div className="container">
                 <div className="logo">
-                    <NavLink to="/">Конный клуб</NavLink>
+                    <NavLink to="/">Лого</NavLink>
                 </div>
-                {/* Навигация */}
                 <nav className={`navbar ${menuOpen ? "open" : ""}`}>
-                    {navigation.map((link, index) => (
+                    {filteredNavigation.map((link, index) => (
                         <NavLink
                             key={index}
                             to={link.path}
@@ -55,8 +58,7 @@ const Navbar = ({ navigation, user }) => {
 
         </header>
 
-    )
-        ;
+    );
 };
 
 export default Navbar;

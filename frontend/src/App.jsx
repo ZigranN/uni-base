@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {Route, Routes} from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-import "./styles.css";
 import Home from "./pages/Home/Home.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import Services from "./pages/Services/Services.jsx";
@@ -30,20 +29,22 @@ const App = () => {
     if (!config) return <div>Загрузка...</div>;
 
     return (
-        <div style={{ fontFamily: config.theme.fontFamily }}>
+        <div>
             <Navbar navigation={config.navigation} />
-            <Routes>
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/" element={<Home mainContent={config.mainContent["/"]} />} />
-                <Route path="/services" element={<Services services={config.services} />}/>
-                <Route path="/about" element={<About aboutData={config.about} />} />
-                <Route path="/booking" element={<Booking />} />
-                <Route path="/events" element={<Events events={config.events} />} />
-                <Route path="/contact" element={<Contact contactData={config.contact} />} />
-                <Route path="/profile" element={<Profile />} />
+            <div className="home-page">
+                <Routes>
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/" element={<Home mainContent={config.mainContent["/"]} />} />
+                    <Route path="/services" element={<Services services={config.services} />}/>
+                    <Route path="/about" element={<About aboutData={config.about} />} />
+                    <Route path="/booking" element={<Booking />} />
+                    <Route path="/events" element={<Events events={config.events} />} />
+                    <Route path="/contact" element={<Contact contactData={config.contact} />} />
+                    <Route path="/profile" element={<Profile />} />
 
-            </Routes>
+                </Routes>
+            </div>
             <Footer footerData={config.footer} />
         </div>
     );

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../../UserContext"; // Хук контекста
 import "./Auth.css";
 import axios from "axios";
 import API_BASE_URL from "../../config/api.js";
 
 const Register = () => {
+    const { login } = useUser(); // Получаем функцию сохранения пользователя
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -14,7 +16,7 @@ const Register = () => {
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
-    // Обработчик изменения полей формы
+    // Обработка изменения полей
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
@@ -23,7 +25,7 @@ const Register = () => {
         }));
     };
 
-    // Обработчик отправки формы
+    // Отправка формы
     const handleRegister = async (e) => {
         e.preventDefault();
 
@@ -35,17 +37,20 @@ const Register = () => {
         }
 
         try {
-            await axios.post(`${API_BASE_URL}/register`, {
+            const response = await axios.post(`${API_BASE_URL}/auth/register`, {
                 name,
                 email,
                 password,
             });
 
-            navigate("/login"); // Перенаправляем на страницу входа
+            const userData = response.data;
+
+            // Сохраняем пользователя в контекст
+            login(userData);
+
+            navigate("/"); // Перенаправляем на главную страницу
         } catch (err) {
-            const message =
-                err.response?.data?.message || "Ошибка при регистрации";
-            setError(message);
+            setError(err.response?.data?.message || "Ошибка при регистрации");
         }
     };
 

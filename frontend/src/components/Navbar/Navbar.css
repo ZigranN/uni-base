@@ -65,7 +65,7 @@
 }
 
 .icon-text {
-    font-size: var(--font-size-base);
+    font-size: 10px;
     margin-top: var(--spacing-margin);
     color: var(--color-muted-text);
     opacity: 0;

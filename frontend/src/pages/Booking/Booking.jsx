@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useUser } from "../../UserContext"; // Используем UserContext
 import "./Booking.css";
+import API_BASE_URL from "../../config/api.js";
 
 const Booking = () => {
+    const { user } = useUser(); // Получаем текущего пользователя из контекста
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -10,70 +14,76 @@ const Booking = () => {
         time: "",
     });
     const [message, setMessage] = useState("");
+    const [error, setError] = useState("");
+
+    // Устанавливаем имя и email из контекста пользователя
+    useEffect(() => {
+        setFormData((prev) => ({
+            ...prev,
+            name: user?.name || "",
+            email: user?.email || "",
+        }));
+    }, [user]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         // Валидация данных
-        if (!formData.name || !formData.email || !formData.phone || !formData.date || !formData.time) {
-            setMessage("Пожалуйста, заполните все поля");
+        if (!formData.name || !formData.phone || !formData.date || !formData.time) {
+            setMessage("");
+            setError("Пожалуйста, заполните все поля");
             return;
         }
 
-        // Имитация подтверждения записи
-        setMessage(`Запись подтверждена! Подробности отправлены на ${formData.email}`);
+        try {
+            // Отправка данных на сервер
+            await axios.post(`${API_BASE_URL}/bookings`, {
+                email: user?.user.email, // userId из контекста
+                phone: formData.phone,
+                date: formData.date,
+                time: formData.time,
+            });
 
-        // Здесь вы можете отправить данные на сервер
-        console.log("Данные формы:", formData);
+            // Успешное подтверждение записи
+            setMessage(`Запись подтверждена! Подробности отправлены на ${formData.email}`);
+            setError("");
 
-        // Сброс формы
-        setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            date: "",
-            time: "",
-        });
+            // Сброс формы
+            setFormData({
+                name: user?.name || "",
+                phone: "",
+                date: "",
+                time: "",
+            });
+        } catch (err) {
+            setMessage("");
+            setError(err.response?.data?.message || "Произошла ошибка при записи");
+        }
     };
 
     return (
         <div className="booking-page">
             <h1>Онлайн-запись</h1>
-            <p>Заполните форму, чтобы записаться на занятия</p>
+            <p>Заполните форму, чтобы записаться на мероприятие или услугу</p>
 
             <form className="booking-form" onSubmit={handleSubmit}>
-                {/* Имя */}
                 <div className="form-group">
                     <label htmlFor="name">Имя</label>
                     <input
                         type="text"
                         id="name"
                         name="name"
-                        value={formData.name}
+                        value={formData.name || ""} // Убедитесь, что значение не undefined
                         onChange={handleChange}
                         placeholder="Введите ваше имя"
+                        required
                     />
                 </div>
-
-                {/* Электронная почта */}
-                <div className="form-group">
-                    <label htmlFor="email">Электронная почта</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Введите ваш email"
-                    />
-                </div>
-
-                {/* Телефон */}
                 <div className="form-group">
                     <label htmlFor="phone">Телефон</label>
                     <input
@@ -83,10 +93,9 @@ const Booking = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="Введите ваш телефон"
+                        required
                     />
                 </div>
-
-                {/* Дата */}
                 <div className="form-group">
                     <label htmlFor="date">Дата</label>
                     <input
@@ -95,10 +104,9 @@ const Booking = () => {
                         name="date"
                         value={formData.date}
                         onChange={handleChange}
+                        required
                     />
                 </div>
-
-                {/* Время */}
                 <div className="form-group">
                     <label htmlFor="time">Время</label>
                     <input
@@ -107,13 +115,11 @@ const Booking = () => {
                         name="time"
                         value={formData.time}
                         onChange={handleChange}
+                        required
                     />
                 </div>
-
-                {/* Сообщение */}
-                {message && <p className="message">{message}</p>}
-
-                {/* Кнопка отправки */}
+                {message && <p className="message success">{message}</p>}
+                {error && <p className="message error">{error}</p>}
                 <button type="submit" className="submit-button">Записаться</button>
             </form>
         </div>
